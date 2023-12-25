@@ -151,6 +151,8 @@ input[type="text"] {
     border-radius: 10px;
     z-index: 1000;
     transition: visibility 0s, opacity 0.5s linear;
+    overflow: auto;
+    max-height: 80vh; 
 }
 
 #impressum-popup.show {
