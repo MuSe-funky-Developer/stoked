@@ -5,10 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    
 </head>
 <body>
 
     <main>
+    <div id="button-container">
+        <button id="mute-button"><i class="fas fa-volume-up"></i></button>
+        <button id="impressum-button"><i class="fas fa-info-circle"></i></button>
+    </div>
+                <audio id="bg-noise" src="Sounds/Stoked_01_BG.mp3" preload="auto" loop></audio>
+                <audio id="intro-noise" src="Sounds/Stoked_intro.mp3" preload="auto"></audio>
+
+                
+<div id="impressum-popup" style="display: none;">
+    <h2>Impressum</h2>
+
+    <h3>Angaben gemäß § 5 TMG:</h3>
+    <p>Musterfirma GmbH<br>
+       Musterstraße 1<br>
+       12345 Musterstadt</p>
+
+    <h3>Vertreten durch:</h3>
+    <p>Geschäftsführer Max Mustermann</p>
+
+    <h3>Kontakt:</h3>
+    <p>Telefon: 01234 56789<br>
+       Fax: 01234 56789-0<br>
+       E-Mail: <a href="mailto:info@musterfirma.de">info@musterfirma.de</a></p>
+
+    <h3>Registereintrag:</h3>
+    <p>Eintragung im Handelsregister.<br>
+       Registergericht: Amtsgericht Musterstadt<br>
+       Registernummer: HRB 12345</p>
+
+    <h3>Umsatzsteuer-ID:</h3>
+    <p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br>
+       DE 123 456 789</p>
+
+    <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</h3>
+    <p>Max Mustermann<br>
+       Adresse wie oben</p>
+
+    <h3>Haftungsausschluss:</h3>
+
+    <h4>Haftung für Inhalte</h4>
+    <p>Die Inhalte unseres Internetauftritts wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+
+    <h4>Haftung für Links</h4>
+    <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+    <h4>Urheberrecht</h4>
+    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+
+</div>
         <div id="popup" style="display: none;">
             <div id="popup-content">
                 <input type="text" id="console-input" placeholder="Enter command...">

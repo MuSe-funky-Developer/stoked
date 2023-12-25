@@ -151,3 +151,50 @@ document.addEventListener('click', function(e) {
       console.log('Popup is visible.');
   }
 });
+
+// Variables for the audio elements
+var introAudio = document.getElementById('intro-noise');
+var bgAudio = document.getElementById('bg-noise');
+
+// Variables for the audio volumes
+var introVolume = 0.5; // Adjust as needed
+var bgVolume = 0.1; // Adjust as needed
+
+// Set the initial volumes
+introAudio.volume = introVolume;
+bgAudio.volume = bgVolume;
+
+// Generate a random number between 1 and 6
+var randomNumber = Math.floor(Math.random() * 6) + 1;
+
+// Create a new audio element for the intro
+var introAudio = new Audio('Sounds/Stoked_intro' + randomNumber + '.mp3');
+introAudio.volume = introVolume;
+
+// Play the intro and background audio files when the user interacts with the site
+window.addEventListener('click', function () {
+    introAudio.play();
+    bgAudio.play();
+}, { once: true });
+
+// Mute button event listener
+document.getElementById('mute-button').addEventListener('click', function () {
+    // Toggle the muted property of both audio elements
+    introAudio.muted = !introAudio.muted;
+    bgAudio.muted = !bgAudio.muted;
+
+    // Update the button icon
+    var icon = this.querySelector('i');
+    icon.className = introAudio.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+});
+
+
+//impressum
+document.getElementById('impressum-button').addEventListener('click', function () {
+  var impressumPopup = document.getElementById('impressum-popup');
+  if (impressumPopup.classList.contains('show')) {
+      impressumPopup.classList.remove('show');
+  } else {
+      impressumPopup.classList.add('show');
+  }
+});
