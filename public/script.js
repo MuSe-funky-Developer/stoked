@@ -143,11 +143,11 @@ var popup = document.getElementById('popup');
 
 var body = document.getElementsByName('body');
 document.addEventListener('click', function(e) {
-    if (e.target.id == 'popup' && popup.style.display == 'block') {
+    if (e.target.id == 'popup' && popup.style.display == 'flex') {
         popup.style.display = 'none';
         console.log('Popup is hidden.');
     }else{
-      popup.style.display = 'block';
+      popup.style.display = 'flex';
       console.log('Popup is visible.');
   }
 });
@@ -173,7 +173,9 @@ introAudio.volume = introVolume;
 
 // Play the intro and background audio files when the user interacts with the site
 window.addEventListener('click', function () {
-    introAudio.play();
+  introAudio.volume = introVolume;
+bgAudio.volume = bgVolume; 
+  introAudio.play();
     bgAudio.play();
 }, { once: true });
 
