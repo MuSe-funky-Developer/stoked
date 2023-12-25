@@ -180,8 +180,10 @@ bgAudio.volume = bgVolume;
 }, { once: true });
 
 // Mute button event listener
-document.getElementById('mute-button').addEventListener('click', function () {
-    // Toggle the muted property of both audio elements
+document.getElementById('mute-button').addEventListener('click', function (event) {
+  event.stopPropagation(); // Add this line
+  
+  // Toggle the muted property of both audio elements
     introAudio.muted = !introAudio.muted;
     bgAudio.muted = !bgAudio.muted;
 
@@ -192,11 +194,20 @@ document.getElementById('mute-button').addEventListener('click', function () {
 
 
 //impressum
-document.getElementById('impressum-button').addEventListener('click', function () {
+document.getElementById('impressum-button').addEventListener('click', function (event) {
+  event.stopPropagation();
   var impressumPopup = document.getElementById('impressum-popup');
   if (impressumPopup.classList.contains('show')) {
+    impressumPopup.style.display = 'none';
       impressumPopup.classList.remove('show');
   } else {
       impressumPopup.classList.add('show');
+      impressumPopup.style.display = 'block';
   }
+});
+
+document.getElementById('close-popup-button').addEventListener('click', function (event) {
+  event.stopPropagation();
+  var impressumPopup = document.getElementById('impressum-popup');
+  impressumPopup.classList.remove('show');
 });
