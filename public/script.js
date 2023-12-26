@@ -164,8 +164,17 @@ var bgVolume = 0.1; // Adjust as needed
 introAudio.volume = introVolume;
 bgAudio.volume = bgVolume;
 
+// Check if the user has visited the site before
+var hasVisitedBefore = localStorage.getItem('hasVisitedBefore');
+
 // Generate a random number between 1 and 6
-var randomNumber = Math.floor(Math.random() * 6) + 1;
+var randomNumber = Math.floor(Math.random() * 7) + 1;
+
+if (hasVisitedBefore) {
+  // If the user has visited before, give them a different audio file
+ var randomNumber = Math.floor(Math.random() * 5) + 10;
+ console.log('User has visited before. Playing intro ' + randomNumber + '.');
+} 
 
 // Create a new audio element for the intro
 var introAudio = new Audio('Sounds/Stoked_intro' + randomNumber + '.mp3');
@@ -178,6 +187,9 @@ bgAudio.volume = bgVolume;
   introAudio.play();
     bgAudio.play();
 }, { once: true });
+
+// Store the visit in localStorage
+localStorage.setItem('hasVisitedBefore', true);
 
 // Mute button event listener
 document.getElementById('mute-button').addEventListener('click', function (event) {
@@ -210,4 +222,12 @@ document.getElementById('close-popup-button').addEventListener('click', function
   event.stopPropagation();
   var impressumPopup = document.getElementById('impressum-popup');
   impressumPopup.classList.remove('show');
+
+});
+
+document.getElementById('close-popup-button').addEventListener('click', function () {
+  setTimeout(function () {
+      var impressumPopup = document.getElementById('impressum-popup');
+      impressumPopup.style.display = 'none';
+  }, 1000); // Delay of 1 second
 });
